@@ -1,9 +1,10 @@
+/** 
+* ILexDialogs by LongByte 
+* ilex.chesnokov@gmail.com * version 2.1.0 
+*/
 $(document).ready(function () {
     ILexDialogs.initDialogs();
 });
-/*-----------------------------------------------*/
-/*--------Диалоги--------------------------------*/
-/*-----------------------------------------------*/
 
 var ILexDialogs = {
     DialogStack: [],
