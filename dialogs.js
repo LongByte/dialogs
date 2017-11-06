@@ -1,7 +1,8 @@
-/** 
-* ILexDialogs by LongByte 
-* ilex.chesnokov@gmail.com * version 2.1.0 
-*/
+/**
+ * ILexDialogs by LongByte
+ * ilex.chesnokov@gmail.com
+ * version 2.1.3
+ */
 $(document).ready(function () {
     ILexDialogs.initDialogs();
 });
@@ -59,7 +60,7 @@ var ILexDialogs = {
             $(this)
                 .unbind('click')
                 .click(function () {
-                    ILex_OpenDialog($(this).data('ilex-dialog'))
+                    return ILex_OpenDialog($(this).data('ilex-dialog'))
                 });
         });
 
@@ -253,7 +254,7 @@ function ILex_OpenDialog(dialog, options) {
     }
 
     options.disableScroll = !(options.disableScroll === false);
-    options.showClose = options.showClose || false;
+    options.showClose = !(options.showClose === false);
     options.showOverlay = !(options.showOverlay === false);
     if (!options.showOverlay) {
         options.closeOnOuterClick = options.closeOnOuterClick === true;
@@ -329,7 +330,7 @@ function ILex_OpenDialog(dialog, options) {
     }
 
     //применение параметров
-    dialog.outerWidth(options.width);
+    dialog.width(options.width);
     //позиционирование диалога
     ILexDialogs.positionDialog(dialog);
     if (options.showOverlay) {
@@ -369,7 +370,8 @@ function ILex_CloseDialog(dialog) {
     var dialog_index = $.inArray('#' + $(dialog).attr('id'), ILexDialogs.DialogStack);
     //удаляем именно ее
     ILexDialogs.DialogStack.splice(dialog_index, 1);
-    //утрамбомываем z-indexы диалогов, что бы небыло пробелов     ILexDialogs.recalcZIndex();
+    //утрамбомываем z-indexы диалогов, что бы небыло пробелов     
+    ILexDialogs.recalcZIndex();
     //ну это не то что бы каунт, это скорее id последнего
     var countVisibleDialog = ILexDialogs.DialogStack.length - 1;
     if (closeDialogoOptions.showOverlay) {
