@@ -11,7 +11,7 @@
 dialog - JQuery селектор или объект. Обязательное.
 options - набор параметров.
 
-Закрытие диалога: ILex_OpenDialog(dialog);
+Закрытие диалога: ILex_CloseDialog(dialog);
 dialog - JQuery селектор или объект. Обязательное.
 
 Открытие сообщения об ошибке: ILex_OpenErrorDialog(content, options);
